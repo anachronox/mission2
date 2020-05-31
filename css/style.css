@@ -1,0 +1,266 @@
+/* 
+Based on Vanilla CSS - 
+https://github.com/bradleytaunt/vanilla-css 
+*/
+
+/* Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+* { box-sizing: border-box; }
+
+/* Variables */
+:root {
+    --desktop-font-size: 1.2rem/1.6;
+    --mobile-font-size: 1.1rem/1.4;
+    --primary-color: #222;
+    --secondary-color: #666;
+    --tertiary-color: #fff;
+    --quaternary-color: #ddd;
+}
+
+@media (prefers-color-scheme:dark) {
+    :root {
+        --primary-color: #fff;
+        --secondary-color: #666;
+        --tertiary-color: #000;
+        --quaternary-color: #222;
+    }
+}
+
+html { scroll-behavior: smooth;}
+
+
+/* Typography */
+body {
+    color: var(--primary-color);
+    background: var(--tertiary-color);
+    font: var(--desktop-font-size) -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto, Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1,h2,h3,h4,h5,h6,p,blockquote,dl,img,figure { margin: 2rem 0; }
+h1,h2,h3,h4,h5,h6 { font-weight: bold; }
+h1 { font-size: 320%; }
+h2 { font-size: 240%; }
+h3 { font-size: 180%; }
+h4 { font-size: 160%; }
+h5,h6 { font-size: 100%; text-transform: uppercase; }
+
+header h1 { border-bottom: 1px solid var(--quaternary-color); }
+
+p { margin: 2rem 0; }
+
+a,a:visited { color: var(--primary-color); }
+a:hover, a:active { color: var(--secondary-color); }
+
+strong, time, b { font-weight: bold; }
+em, dfn, i { font-style: italic; }
+sub { font-size: 60%; vertical-align: bottom; }
+small { font-size: 80%; }
+
+blockquote, q {
+    background: var(--quaternary-color);
+    border-left: 10px solid var(--secondary-color);
+    font-family: "Georgia", serif;
+    padding: 1rem;
+}
+blockquote p:first-child { margin-top: 0; }
+cite {
+    font-family: "Georgia", serif;
+    font-style: italic;
+    font-weight: bold;
+}
+
+kbd,code,samp,pre,var { font-family: monospace; font-weight: bold; }
+code, pre {
+    background: var(--tertiary-color);
+    padding: 0.5rem 1rem;
+}
+code pre , pre code { padding: 0; }
+
+
+/* Elements */
+hr {
+    background: var(--quaternary-color);
+    border: 0;
+    height: 1px;
+    margin: 4rem 0;
+}
+
+img { max-width: 100%; }
+
+figure {
+    display: inline-block;
+    padding: 1rem;
+    width: auto;
+}
+figure img { margin: 0; }
+figure figcaption { font-size: 80%; }
+
+ul, ol { margin: 2rem 0; padding: 0 0 0 4rem; }
+
+dl dd { padding-left: 2rem; }
+
+table {
+    border: 0px solid var(--secondary-color);
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+table caption { margin: 2rem 0; }
+table thead { text-align: center; }
+table tr { border-bottom: 1px solid var(--quaternary-color); }
+table tbody tr:nth-child(even) { background: var(--tertiary-color); }
+table th { background: var(--quaternary-color); font-weight: bold; }
+table th, table td { padding: 1rem; }
+table th:not(last-of-type), table td:not(last-of-type) { border-right: 0px solid var(--quaternary-color); }
+
+input { color: var(--primary-color); background: var(--tertiary-color); border: 1px solid var(--secondary-color); padding: 0.8rem; margin: 2px auto; }
+input:focus, input:active { background-color: var(--quaternary-color); border-color: var(--secondary-color); }
+
+/*------------- 
+THEME 
+-------------*/
+.header, .container, .aside, .footer { width: 100%; margin: 0 auto; }
+
+.section-inner {
+    max-width: 70rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.header {
+    text-transform: uppercase;
+    font-size: 70%;
+    font-weight: bold;
+    border-bottom: 1px solid var(--quaternary-color);
+    cursor: default;
+}
+
+.logo, .nav { display: inline-block; line-height: 1; }
+.logo { margin: .5rem 2rem .5rem 0; }
+
+.logo img { 
+    width: auto;
+    max-height: 36px; 
+    height: 100%; 
+    margin: 0 0 -12px 0;
+}
+.logo-title {
+    font-size: 100%;
+    display: inline-block;
+    margin: 0;
+    padding: .5rem 0;
+    max-height: 36px;
+    vertical-align: middle;
+}
+
+.nav { vertical-align: middle; }
+.nav ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0 0 0 -1rem;
+    padding: 0;
+}
+.nav ul li { display: inherit; padding: .5rem 1rem; }
+.nav ul li a { text-decoration: none; border-bottom: 1px solid transparent; }
+.nav ul li a:focus, .nav ul li a:hover, .nav ul li a:active { color: var(--primary-color); border-bottom: 1px solid var(--secondary-color); }
+
+.no-underline { text-decoration: none; }
+
+.scroll-x { overflow-x: auto; }
+
+.text-center { text-align: center; }
+
+.text-right { text-align: right; }
+
+.button-default {
+    color: var(--primary-color);
+    display: inline-block;
+    background: var(--tertiary-color);
+    border: 2px solid var(--primary-color);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    xtransition: 700ms;
+    padding: .76rem 1.8rem;
+}
+.button-default:hover { color: var(--tertiary-color); background: var(--primary-color); }
+.aside .button-default { margin: .25rem auto; }
+.button-up {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 12px 0px 12px 18px;
+    border-color: transparent transparent transparent var(--primary-color);
+    transform: rotate(270deg);
+}
+
+.footer {
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid var(--quaternary-color);
+}
+.footer .logo { padding: .5rem 1rem; margin: 0; }
+.footer-nav {
+    text-transform: uppercase;
+    font-size: 65%;
+    font-weight: bold;
+}
+.footer-nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: .5rem 1rem;
+}
+
+.footer-nav a:focus, .footer-nav a:hover, .footer-nav a:active { color: var(--secondary-color); }
+
+.beam-up {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    background: transparent;
+    padding: 8px 12px 12px;
+    opacity: .4;
+    xtransition: ease-in-out .5s;
+}
+.beam-up:hover { opacity: 1; transform: translate(0,-2px); }
+
+::selection { color: var(--tertiary-color); background: var(--primary-color); }
+
+
+/*------------- 
+BREAKPOINTS 
+-------------*/
+@media screen and (max-width: 50rem) {
+    body {
+        font: var(--mobile-font-size) -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto, Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol"
+    }
+    table { table-layout: auto; }
+    .header { text-align: center; }
+    .header .logo, .footer .logo { display: block; font-size: 130%; letter-spacing: .3rem; padding: 10px 20px; }
+    .footer-nav a { padding: 10px 10px; }
+}
